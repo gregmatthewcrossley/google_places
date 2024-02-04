@@ -117,7 +117,7 @@ describe GooglePlaces::Client do
     end
 
     it 'should request spots by bounds' do
-      expect(GooglePlaces::Spot).to receive(:list_by_bounds).with(bounds, api_key, query: query)
+      expect(GooglePlaces::Spot).to receive(:list_by_bounds).with(bounds, api_key, { query: query })
       client.spots_by_bounds(bounds, query: query)
     end
 

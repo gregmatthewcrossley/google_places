@@ -189,3 +189,9 @@ Concerning the <tt>reference</tt> field, the Google Places API documentation sta
   but the same token is not guaranteed to be returned for any given Place across different searches."
 
 Please be aware that the <tt>reference</tt> field in spot details may differ from the <tt>reference</tt> used to retrieve that spot.
+
+### Testing
+The test suite needs a real working API key to function. Copy `spec/api_key.sample.rb` to `spec/api_key.rb` and update `abc123` to your API key. Once that's done, run:
+```shell
+bundle exec rspec
+```
