@@ -11,9 +11,9 @@ https://developers.google.com/places/web-service/get-api-key and follow the inst
 
 == Installing the gem
 
-To use this gem, install it with <tt>gem install google_places</tt> or add it to your Gemfile:
+To use this gem, install it with <tt>gem install google-places</tt> or add it to your Gemfile:
 
-  gem 'google_places'
+  gem 'google-places'
 
 And install it with <tt>bundle install</tt>
 
