@@ -6,6 +6,26 @@ module GooglePlaces
     # @return [Hash] the provided options hash
     attr_reader :options
 
+    # Configures the class with the provided api key, which will be used as the default
+    # for all newly instantiated Client instances.
+
+    # Define a class variable for configuration
+    @@configuration = Struct.new(:access_token).new
+
+    def self.configure
+      yield(@@configuration) if block_given?
+    end
+
+    def self.configuration
+      @@configuration
+    end
+
+    # Instance method to access the class-level configuration
+    def configuration
+      self.class.configuration
+    end
+
+
     # Creates a new Client instance which proxies the requests to the certain classes
     #
     # @param [String] api_key The api key to use for the requests

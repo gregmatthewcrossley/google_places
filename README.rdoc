@@ -1,26 +1,38 @@
-= Google Places
+# Google Places
+This gem provides a Ruby wrapper around the ["New" Google Places API](https://developers.google.com/maps/documentation/places/web-service/op-overview) (as opposed to the legacy [Google Places API](https://developers.google.com/maps/documentation/places/web-service/search)), using [HTTParty](https://github.com/jnunemaker/httparty). At this moment the gem does not support OAuth authentication and will only work with an API key.
 
-This gem provides a Ruby wrapper around the Google Places API, using HTTParty. At this moment the gem does
-not support OAuth authentication and will only work with an API key.
+The new Places API includes the following APIs:
+- Place Details
+- Place Photo
+- Nearby Search
+- Text Search
 
-
-== Obtaining an API key
-
+## Obtaining an API key
 To be able to use this gem, you'll need a Google Places API key. To request an API key, point your browser to
-https://developers.google.com/places/web-service/get-api-key and follow the instructions there.
+[https://developers.google.com/places/web-service/get-api-key](https://developers.google.com/places/web-service/get-api-key) and follow the instructions there.
 
-== Installing the gem
+## Installing the gem
+To use this gem, install it with `gem install google-places` or add it to your Gemfile:
 
-To use this gem, install it with <tt>gem install google_places</tt> or add it to your Gemfile:
+## Initializing a new Client
+```ruby
+@client = GooglePlaces::Client.new(API_KEY)
+```
+Or, if you're using Rails, create an initializer at `config/initializers/google_places.rb`:
+```ruby
+# config/initializers/google_places.rb
+GooglePlaces.tap do |config|
+  # Set the API token for all newly created client instances
+  config.api_key = API_KEY # or something like Rails.application.credentials.dig(:google, :places_api_token) if you're using Rails' encrypted secrets
+end
+```
+Then you can skip the `API_KEY` argument each time:
+```ruby
+@client = GooglePlaces::Client.new
+```
 
-  gem 'google_places'
 
-And install it with <tt>bundle install</tt>
-
-
-== Usage
-
-=== The spot
+### The spot
 
 Each of the API methods below returns a <tt>GooglePlaces::Spot</tt> or a collection of those. Each of these
 objects has these attributes:

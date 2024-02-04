@@ -1,3 +1,8 @@
+## 2.1.0
+- Forked from `qpowell/google_places`
+- Ruby and gem updates for 2024
+- WIP updading to support the "New" Google Places
+
 ## 2.0.0
 ### Breaking Changes for 2.0.0:
 - Removed the `spots_by_radar` method
